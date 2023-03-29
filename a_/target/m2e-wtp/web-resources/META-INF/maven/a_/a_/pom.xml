@@ -1,0 +1,182 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>a_</groupId>
+  <artifactId>a_</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <dependencies>
+	<!-- [https://mvnrepository.com/artifact/org.springframework/spring-webmvc](https://mvnrepository.com/artifact/org.springframework/spring-webmvc) -->
+	<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-webmvc</artifactId>
+	<version>5.2.22.RELEASE</version>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/org.springframework/spring-jdbc](https://mvnrepository.com/artifact/org.springframework/spring-jdbc) -->
+	<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-jdbc</artifactId>
+	<version>5.2.22.RELEASE</version>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/org.springframework/spring-test](https://mvnrepository.com/artifact/org.springframework/spring-test) -->
+	<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-test</artifactId>
+	<version>5.2.22.RELEASE</version>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/org.projectlombok/lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok) -->
+	<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<version>1.18.26</version>
+	<scope>provided</scope>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc](https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc) -->
+	<dependency>
+	<groupId>org.apache.tomcat</groupId>
+	<artifactId>tomcat-jdbc</artifactId>
+	<version>10.1.4</version>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6](https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6) -->
+	<dependency>
+	<groupId>com.oracle.database.jdbc</groupId>
+	<artifactId>ojdbc6</artifactId>
+	<version>11.2.0.4</version>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/javax.servlet/jstl](https://mvnrepository.com/artifact/javax.servlet/jstl) -->
+	<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
+	<version>1.2</version>
+	</dependency>
+	<!-- [https://mvnrepository.com/artifact/junit/junit](https://mvnrepository.com/artifact/junit/junit) -->
+	<dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.13.2</version>
+	<scope>test</scope>
+	</dependency>
+
+
+	<!--어노테이션(자바)기반 마이바티스 -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<!-- SQL 데이터베이스를 쉽게 다룰 수 있는 Java 영속성 프레임워크인 MyBatis 라이브러리 -->
+	<dependency> 
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.5.11</version>
+	</dependency>
+	  	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<!-- MyBatis를 Spring과 쉽게 통합할 수 있도록 해주는 MyBatis-Spring 통합 라이브러리 -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>2.0.7</version>
+	</dependency>
+	
+	
+	<!-- log4j설정 -->
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<!-- Java용 로깅 프레임워크인 Log4j 라이브러리 -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+		<!-- Log4j 1.x용 SLF4J 바인딩입니다. SLF4J는 동일한 코드를 사용하여 다른 로깅 프레임워크를 사용할 수 있도록 하는 로깅 추상화 라이브러리 -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-log4j12</artifactId>
+	    <version>2.0.6</version>
+	<!-- <type>pom</type>
+	    <scope>test</scope>-->
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+		<!--  Jakarta Commons Logging(JCL) 프레임워크? API?와 SLF4J(Simple Logging Facade for Java) 인터페이스 사용
+		 이를 통해 JCL을 사용하는 코드를 쉽게 SLF4J로 마이그레이션 할 수 있음
+		 (로깅 프레임워크, Java 애플리케이션의 다른 구성 요소에서 표준화된 방식으로 로그를 출력하는 데 사용)-->	
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>jcl-over-slf4j</artifactId>
+	    <version>2.0.6</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<!-- Spring 프레임워크의 핵심 기능을 제공하는 Spring Core 라이브러리 
+			(일반적인 기능을 제공하는 Spring Framework의 핵심 라이브러리
+			 종속성 주입, 트랜잭션 관리 및 애플리케이션 컨텍스트 관리와 같은 기능이 포함) -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>5.2.22.RELEASE</version>
+	</dependency>
+			
+			
+	<!-- log4jdbc-log4j2 설정 -->
+		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
+		<!-- 모든 SQL 문과 결과 집합을 로깅하는 JDBC 드라이버인 Log4jdbc-Log4j2 라이브러리 
+			(JDBC 호출을 더 읽기 쉽고 사용자 친화적인 방식으로 로깅하는 데 사용
+			 특히 데이터베이스 관련 문제를 디버깅할 때 유용) -->	
+	<dependency>
+	    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+	    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+	    <version>1.16</version>
+	</dependency>
+			
+			
+			
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+	<!-- 파일을 웹 서버에 업로드하는 방법을 제공하는 Commons FileUpload 라이브러리 -->
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	
+	
+	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+	<!-- Java Bean Validation 프레임워크의 API
+		 사용자 입력 또는 다른 데이터 객체를 특정 제약 조건에 대해 검증하는 방법을 제공 -->
+	<dependency>
+	    <groupId>javax.validation</groupId>
+	    <artifactId>validation-api</artifactId>
+	    <version>2.0.1.Final</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+	<!-- Bean Validation 프레임워크의 구현 중 하나로,
+		 특히 인기있는 객체 관계 매핑 (ORM) 프레임워크인 Hibernate와 함께 사용하기 위해 특별히 설계됨 -->
+	<dependency>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>6.2.5.Final</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+	<!-- Java bean을 조작하기 위한 유틸리티 클래스를 제공 -->
+	<dependency>
+	    <groupId>commons-beanutils</groupId>
+	    <artifactId>commons-beanutils</artifactId>
+	    <version>1.9.4</version>
+	</dependency>
+	
+					
+</dependencies>
+ 
+ 
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>11</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
