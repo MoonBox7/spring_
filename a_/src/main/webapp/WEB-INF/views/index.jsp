@@ -4,8 +4,8 @@
 
 <h1>메인</h1>
 <br>
-<h5>The current time is : ${Date }</h5> 
-
+<h5 class="h5-clock" id="h5-clock"></h5> 
+<h1>The current time is : ${Date }</h1>
 <a href="${contextPath }/member/signin">로그인</a>
 <a href="${contextPath }/member/signup">회원가입</a>
 
