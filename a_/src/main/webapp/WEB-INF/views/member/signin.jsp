@@ -8,19 +8,22 @@ label {
 	margin-top: 0.5rem;
 	margin-bottom: 0.2rem;
 }
+
 input {
 	border: none;
 	border-radius: 0.3rem;
 }
+
 button {
 	margin: 12px auto;
 	display: block;
 	border: none;
-  	box-sizing: border-box;
- 	max-width: 20rem;
- 	width: 100%;
- 	border-radius: 0.3rem;
+	box-sizing: border-box;
+	max-width: 20rem;
+	width: 100%;
+	border-radius: 0.3rem;
 }
+
 .center {
 	display: flex;
 	justify-content: center;
@@ -31,18 +34,22 @@ button {
 
 <div class="center">
 	<form action="${contextPath}/member/signin" method="post">
-	  <!-- 아이디 -->
-	  <label for="memberId">아이디</label>
-	  <input type="text" id="memberId" name="memberId" placeholder="아이디" required>
-	
-	  <!-- 비밀번호 -->
-	  <label for="password">비밀번호</label>
-	  <input type="password" id="password" name="password" placeholder="비밀번호" required>
-	
-	  <button type="submit">로그인</button>
-	  <a href="${contextPath }/member/signup">SignUp</a>
-	  <a href="#">FindId</a>
-	  <a href="#">FindPw</a>
+		<div style="display: flex; justify-content: center; align-items: center; ">
+			<a href="${contextPath}"> 
+				<img src="${contextPath}/resources/images/fox.png" alt="fox logo" style="width: 70%; height: 70%; margin-top: 20px; margin-right: 10px">
+			</a>
+		</div>
+		<!-- 아이디 -->
+		<label for="memberId">아이디</label> <input type="text" id="memberId"
+			name="memberId" placeholder="아이디" required>
+		<!-- 비밀번호 -->
+		<label for="password">비밀번호</label> <input type="password"
+			id="password" name="password" placeholder="비밀번호" required>
+
+		<button type="submit">로그인</button>
+		<a href="${contextPath }/member/signup">SignUp</a>
+		<a href="#">FindId</a>
+		<a href="#">FindPw</a>
 	</form>
 </div>
 

@@ -9,46 +9,40 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-@Configuration
-public class RootConfig {
+@Configuration //이 클래스가 Spring 컨테이너에 대한 Bean 정의를 제공한다는 것을 나타냄
+public class RootConfig { // RootConfig 클래스는 여러 개의 Bean을 정의
 
+	// DataSource Bean은 드라이버, URL, 사용자 이름 및 비밀번호와 같은 데이터베이스 연결 속성을 구성하는 데 사용
 	@Bean
-	public DataSource dataSource() {
+	public DataSource dataSource() { 
 		DataSource dataSource = new DataSource();
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("scott");
-		dataSource.setPassword("tiger");
+		dataSource.setUsername("springdb");
+		dataSource.setPassword("1234");
 		return dataSource;
 	}
 	
 	@Bean
 	public SqlSessionFactoryBean sqlSessionFactory() throws IOException{ //SqlSessionFactoryBean을 생성
 		SqlSessionFactoryBean factory = new SqlSessionFactoryBean(); // SqlSessionFactoryBean은 MyBatis 프레임워크에서 제공하는 클래스로, SqlSession 객체를 생성하는 데 사용
-		factory.setDataSource(dataSource());
-		factory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/**/*Mapper.xml"));
+		factory.setDataSource(dataSource()); // 데이터베이스 연결에 사용되는 DataSource 객체를 지정
+		factory.setMapperLocations(new PathMatchingResourcePatternResolver() //MyBatis 매퍼 인터페이스의 위치를 나타내는 XML 파일의 경로를 지정, 
+					.getResources("classpath:mappers/**/*Mapper.xml")); //(new P~) : classpath:mappers 디렉토리와 그 하위 디렉토리에 있는 모든 XML 파일을 검색
 		return factory;
 	}
-	
+
 	@Bean
-	public SqlSessionTemplate sqlSessionTemplate() throws Exception {
-		return new SqlSessionTemplate(sqlSessionFactory().getObject());
+	public SqlSessionTemplate sqlSessionTemplate() throws Exception { // MyBatis SqlSession의 구현체로, MyBatis의 SQL 매퍼 메서드를 호출하는 데 사용
+		return new SqlSessionTemplate(sqlSessionFactory().getObject()); // SqlSessionTemplate 객체를 생성할 때 SqlSessionFactory 객체를 인자로 전달. sqlSessionFactory().getObject()는 SqlSessionFactory 객체를 반환
 	}
 	
 }
 
-//@Configuration 어노테이션은 이 클래스가 Spring 컨테이너에 대한 Bean 정의를 제공한다는 것을 나타냅니다. 
 //@MapperScan 어노테이션은 지정된 패키지에서 MyBatis 매퍼 인터페이스를 스캔하는 데 사용됩니다. 
 //@PropertySource 어노테이션은 지정된 프로퍼티 파일에서 프로퍼티를 로드하는 데 사용됩니다.
-//
-//RootConfig 클래스는 여러 개의 Bean을 정의합니다.
-//
 //dataSource: DataSource Bean은 드라이버, URL, 사용자 이름 및 비밀번호와 같은 데이터베이스 연결 속성을 구성하는 데 사용됩니다. @Value 어노테이션은 프로퍼티 파일에서 값을 주입하는 데 사용됩니다.
-//
-//sqlSessionFactory: SqlSessionFactoryBean Bean은 SqlSession 객체를 만들어 데이터베이스와 상호작용하는 데 사용되는 SqlSessionFactory 인스턴스를 생성합니다. 이 Bean에는 dataSource Bean이 주입되고 매퍼 위치가 지정됩니다.
-//
-//sqlSessionTemplate: SqlSessionTemplate Bean은 MyBatis와 작업하기 위한 간소화된 API를 제공합니다. 이 Bean은 생성자에 SqlSessionFactory Bean을 전달하여 생성됩니다.
-//
+
 //messageSource: ReloadableResourceBundleMessageSource Bean은 국제화 지원을 위한 메시지 소스를 구성하는 데 사용됩니다. 이 Bean은 classpath에서 메시지 프로퍼티 파일을 찾도록 구성됩니다.
 //
 //placeholderConfigurer: PropertySourcesPlaceholderConfigurer Bean은 프로퍼티 값의 placeholder를 해결하는 데 사용됩니다.
