@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.sign {
+	float: right;
+	padding-top: 5%;
+	margin-right: 5%;
+}
+
+.sign a {
+	color: black;
+	text-decoration: none;
+}
+
+.link {
+	padding: 3%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.link a {
+	color: black;
+	margin-top: 3%;
+	text-decoration: none;
+}
+
+img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	margin-left: 25%;
+	margin-top: -15%;
+}
+
+input {
+	float: right;
+	display: flex;
+	flex-direction: row-reverse;
+	border: 1.5px solid black;
+	border-radius: 0.5rem;
+	outline: none;
+	height: 2rem;
+	margin-top: 3%;
+	padding-left: 15px;
+}

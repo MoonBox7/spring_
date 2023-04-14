@@ -6,8 +6,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.jafa.validation.FieldMatch;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -40,4 +38,3 @@ public class MemberDTO {
 	private String phoneNumber;
 }
 
-// 

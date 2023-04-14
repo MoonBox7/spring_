@@ -126,7 +126,7 @@
 			
 			
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-	<!-- 파일을 웹 서버에 업로드하는 방법을 제공하는 Commons FileUpload 라이브러리 -->
+		<!-- 파일을 웹 서버에 업로드하는 방법을 제공하는 Commons FileUpload 라이브러리 -->
 	<dependency>
 	    <groupId>commons-fileupload</groupId>
 	    <artifactId>commons-fileupload</artifactId>
@@ -134,34 +134,42 @@
 	</dependency>
 	
 	
-	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-	<!-- Java Bean Validation 프레임워크의 API
-		 사용자 입력 또는 다른 데이터 객체를 특정 제약 조건에 대해 검증하는 방법을 제공 -->
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<!-- Java Bean Validation 프레임워크의 API
+			 사용자 입력 또는 다른 데이터 객체를 특정 제약 조건에 대해 검증하는 방법을 제공 -->
 	<dependency>
 	    <groupId>javax.validation</groupId>
 	    <artifactId>validation-api</artifactId>
 	    <version>2.0.1.Final</version>
 	</dependency>
 
-	<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
-	<!-- Bean Validation 프레임워크의 구현 중 하나로,
-		 특히 인기있는 객체 관계 매핑 (ORM) 프레임워크인 Hibernate와 함께 사용하기 위해 특별히 설계됨 -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<!-- Bean Validation 프레임워크의 구현 중 하나로,
+			 특히 인기있는 객체 관계 매핑 (ORM) 프레임워크인 Hibernate와 함께 사용하기 위해 특별히 설계됨 -->
 	<dependency>
 	    <groupId>org.hibernate.validator</groupId>
 	    <artifactId>hibernate-validator</artifactId>
 	    <version>6.2.5.Final</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
-	<!-- Java bean을 조작하기 위한 유틸리티 클래스를 제공 -->
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<!-- Java bean을 조작하기 위한 유틸리티 클래스를 제공 -->
 	<dependency>
 	    <groupId>commons-beanutils</groupId>
 	    <artifactId>commons-beanutils</artifactId>
 	    <version>1.9.4</version>
 	</dependency>
 	
-					
-</dependencies>
+	<!-- JSON 설정 -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!-- JSON 데이터를 Java 객체로 매핑하고 그 반대로 매핑하는 방법뿐만 아니라 JSON과 작업하기 위한 다른 유틸리티도 제공 -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.14.2</version>
+	</dependency>
+	
+	</dependencies>
  
  
   <build>

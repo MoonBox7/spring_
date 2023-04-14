@@ -18,7 +18,10 @@ public class MemberVO {
 	private Long mno;
 	private String memberId;
 	private String password;
+	private String confirmPassword;
 	private String memberName;
 	private String email;
 	private String phoneNumber;
+	
 }
+

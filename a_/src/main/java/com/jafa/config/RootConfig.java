@@ -5,11 +5,13 @@ import java.io.IOException;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration //이 클래스가 Spring 컨테이너에 대한 Bean 정의를 제공한다는 것을 나타냄
+@MapperScan("com.jafa.dao")
 public class RootConfig { // RootConfig 클래스는 여러 개의 Bean을 정의
 
 	// DataSource Bean은 드라이버, URL, 사용자 이름 및 비밀번호와 같은 데이터베이스 연결 속성을 구성하는 데 사용
@@ -18,7 +20,7 @@ public class RootConfig { // RootConfig 클래스는 여러 개의 Bean을 정�
 		DataSource dataSource = new DataSource();
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("springdb");
+		dataSource.setUsername("system");
 		dataSource.setPassword("1234");
 		return dataSource;
 	}
@@ -38,13 +40,3 @@ public class RootConfig { // RootConfig 클래스는 여러 개의 Bean을 정�
 	}
 	
 }
-
-//@MapperScan 어노테이션은 지정된 패키지에서 MyBatis 매퍼 인터페이스를 스캔하는 데 사용됩니다. 
-//@PropertySource 어노테이션은 지정된 프로퍼티 파일에서 프로퍼티를 로드하는 데 사용됩니다.
-//dataSource: DataSource Bean은 드라이버, URL, 사용자 이름 및 비밀번호와 같은 데이터베이스 연결 속성을 구성하는 데 사용됩니다. @Value 어노테이션은 프로퍼티 파일에서 값을 주입하는 데 사용됩니다.
-
-//messageSource: ReloadableResourceBundleMessageSource Bean은 국제화 지원을 위한 메시지 소스를 구성하는 데 사용됩니다. 이 Bean은 classpath에서 메시지 프로퍼티 파일을 찾도록 구성됩니다.
-//
-//placeholderConfigurer: PropertySourcesPlaceholderConfigurer Bean은 프로퍼티 값의 placeholder를 해결하는 데 사용됩니다.
-//
-//multipartResolver: CommonsMultipartResolver Bean은 애플리케이션에서 파일 업로드를 지원하는 데 사용됩니다. 이 Bean은 UTF-8 인코딩을 사용하고 파일 크기에 제한이 없도록 구성됩니다.
